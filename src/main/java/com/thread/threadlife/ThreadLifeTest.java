@@ -1,5 +1,6 @@
 package com.thread.threadlife;
 
+import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.ReentrantLock;
 
@@ -39,5 +40,33 @@ public class ThreadLifeTest {
                 }
             }
         },"Thread2").start();
+
+        new Thread(() -> {
+            lock.lock();
+            System.out.println("thread3 waiting");
+            try {
+                //condition.await(5, TimeUnit.SECONDS);
+                condition.await();
+                System.out.println("thread3 after waiting");
+            }catch (InterruptedException e){
+                e.printStackTrace();
+            }finally {
+                lock.unlock();
+            }
+        },"Thread3").start();
+
+        new Thread(() -> {
+            lock.lock();
+            try {
+                System.out.println("thread4 waiting");
+                condition.signal();
+                Thread.sleep(1000*60);
+                System.out.println("thread4 after waiting");
+            }catch (InterruptedException e){
+                e.printStackTrace();
+            }finally {
+                lock.unlock();
+            }
+        },"Thread4").start();
     }
 }
