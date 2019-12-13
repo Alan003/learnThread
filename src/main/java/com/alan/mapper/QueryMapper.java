@@ -1,6 +1,7 @@
 package com.alan.mapper;
 
 import org.apache.ibatis.annotations.Select;
+import org.springframework.context.annotation.Bean;
 
 import java.util.Map;
 
