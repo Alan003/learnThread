@@ -3,7 +3,7 @@
 <mapper namespace="com.alan.mapper.QueryMapper">
 
     <select id="list" resultType="java.util.Map">
-        select * from pms_brand where id=2
+        select * from pms_brand where id=3
     </select>
 
 
