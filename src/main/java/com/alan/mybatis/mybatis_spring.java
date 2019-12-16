@@ -15,9 +15,12 @@ public class mybatis_spring {
         AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(AppConfig.class);
         SqlSessionFactory sqlSessionFactory = (SqlSessionFactory)applicationContext.getBean("sqlSessionFactory");
         //DataSource dataSource = (DataSource) applicationContext.getBean("dataSource");
-        //SqlSession sqlSession = sqlSessionFactory.openSession();
+        SqlSession sqlSession = sqlSessionFactory.openSession();
+        Map o = (Map)sqlSession.selectOne("com.alan.mapper.QueryMapper.list");
+        System.out.println(o);
         //QueryMapper mapper = sqlSession.getMapper(QueryMapper.class);
         QueryMapper mapper = applicationContext.getBean(QueryMapper.class);
+        System.out.println(mapper);
         Map list = mapper.list();
         System.out.println(list);
     }
