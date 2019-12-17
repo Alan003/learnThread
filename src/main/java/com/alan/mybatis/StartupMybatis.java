@@ -30,10 +30,10 @@ public class StartupMybatis  {
         System.out.println("queryMapper读取数据"+ queryMapper.list());
         System.out.println("queryMapper读取数据"+ queryMapper.list());
 
-//        PmsBrand pmsBrand = new PmsBrand();
-//        pmsBrand.setId(3L);
-//        pmsBrand.setName("aaa");
-//        System.out.println("queryMapper2更新数据"+queryMapper2.update(pmsBrand));
+        PmsBrand pmsBrand = new PmsBrand();
+        pmsBrand.setId(3L);
+        pmsBrand.setName("bbb");
+        System.out.println("queryMapper2更新数据"+queryMapper.update(pmsBrand));
 //        System.out.println("queryMapper读取数据"+queryMapper.list());
 //        System.out.println("queryMapper2读取数据"+queryMapper2.list());
 

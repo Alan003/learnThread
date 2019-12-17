@@ -4,9 +4,13 @@
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
     <settings>
-        <setting name="logImpl" value="LOG4J"/>
+        <!--<setting name="logImpl" value="LOG4J"/>-->
         <setting name="localCacheScope" value="SESSION"/>
     </settings>
+    <plugins>
+        <plugin interceptor="com.alan.plugin.ExamplePlugin"/>
+        <plugin interceptor="com.alan.plugin.SecondPlugin"/>
+    </plugins>
     <environments default="development">
         <environment id="development">
             <transactionManager type="JDBC"/>
