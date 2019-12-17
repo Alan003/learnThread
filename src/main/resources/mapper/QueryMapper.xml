@@ -6,6 +6,31 @@
         select * from pms_brand where id=3
     </select>
 
+    <insert id="add" parameterType="com.alan.entity.PmsBrand">
+    insert into pms_brand (name, first_letter, sort,
+      factory_status, show_status, product_count,
+      product_comment_count, logo, big_pic,
+      brand_story)
+    values (#{name,jdbcType=VARCHAR}, #{firstLetter,jdbcType=VARCHAR}, #{sort,jdbcType=INTEGER},
+      #{factoryStatus,jdbcType=INTEGER}, #{showStatus,jdbcType=INTEGER}, #{productCount,jdbcType=INTEGER},
+      #{productCommentCount,jdbcType=INTEGER}, #{logo,jdbcType=VARCHAR}, #{bigPic,jdbcType=VARCHAR},
+      #{brandStory,jdbcType=LONGVARCHAR})
+    </insert>
+    
+    <update id="update" parameterType="com.alan.entity.PmsBrand">
+      update pms_brand set 
+      name = #{name,jdbcType=VARCHAR},
+      first_letter = #{firstLetter,jdbcType=VARCHAR},
+      sort = #{sort,jdbcType=INTEGER},
+      factory_status = #{factoryStatus,jdbcType=INTEGER},
+      show_status = #{showStatus,jdbcType=INTEGER},
+      product_count = #{productCount,jdbcType=INTEGER},
+      product_comment_count = #{productCommentCount,jdbcType=INTEGER},
+      logo = #{logo,jdbcType=VARCHAR},
+      big_pic = #{bigPic,jdbcType=VARCHAR}
+      where id = #{id,jdbcType=BIGINT}
+    </update>
+
 
 
 </mapper>
